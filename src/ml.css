@@ -1,0 +1,18 @@
+#list{
+    background-color: #666;
+    display: flex;
+    flex-direction: row;
+}
+.seperate{
+    padding: 10px;
+    background-color: #6aa;
+margin: 0 1px;
+border-radius: 5px;
+width: -moz-available;
+}
+span{
+    color: #b00;
+}
+#more{
+    color: #fff;
+}
