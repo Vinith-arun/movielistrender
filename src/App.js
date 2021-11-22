@@ -6,7 +6,8 @@ function App() {
 
   return (
     <div className="App" id="that">
-      <Mlf name="vijaymovie" listname="Vijay movies"/><Mlf name="ajithmovie" listname="Ajith movies"/>
+      <Mlf name="vijaymovie" listname="Vijay movies"/>
+      <Mlf name="ajithmovie" listname="Ajith movies"/>
     </div>
   );
 }

@@ -10,9 +10,15 @@ margin: 0 1px;
 border-radius: 5px;
 width: -moz-available;
 }
-span{
-    color: #b00;
+.span{
+    color: #d00;
 }
 #more{
     color: #fff;
+}
+.bought{
+    color: green;
+}
+.rent{
+    color: #fc0;
 }
