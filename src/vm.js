@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './ml.css';
 import {Link} from "react-router-dom";
-// import * as store from'../store'
+
 function Mlf(props) {
     const [isFetched, setFetched]= React.useState({fetched:false,listName:props.name});
     const [data, setData] = React.useState([{name:"Fetching.."}]);
