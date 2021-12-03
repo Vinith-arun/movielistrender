@@ -5,17 +5,13 @@ import './ml.css';
 
 function Mlf(props) {
     const [isFetched, setFetched]= React.useState(false);
-    const [data, setData] = React.useState([{}]);
+    const [data, setData] = React.useState([{name:"Fetching.."}]);
     function fetchMovieList(fetched){
-        console.log('clicked')
         if(fetched){
             axios.get(`http://localhost:9000/${props.name}`)
             .then(resp => {
                 setData(resp.data);
                 setFetched(true);
-                console.log('data fetched= ');
-                console.log(data);
-
             })
             .catch(function (error) {
             console.log(error);
