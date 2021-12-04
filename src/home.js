@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import {  fetchMovieList } from './controllers/apis';
+import './'
 // const all =require('./store/store');
 function movieBody(props){
     return(
-        <div key={props.id} className="movie" style={{display:'flex',flexDirection:'column',padding:'10px',width:'15vw',alignItems:"center"}}>
-            <img className="movieImg" alt="img" src={props.img} style={{width:"15vw",height:"auto"}}></img>
+        <div key={props.id} className="movie">
+            <img className="movieImg" alt="img" src={props.img} ></img>
             <div className="movieBody" style={{display:'flex',flexDirection:'row'}}>
                 <p className="movieName">{props.moviename+" "} </p>
                 <p className="movieYear">{props.year}</p>
@@ -14,13 +15,13 @@ function movieBody(props){
 }
 function listContainer(props){
     return(
-        <div id="list" key={props.id} style={{display:'flex',flexDirection:'column'}}>
-            <div className="title_and_button" style={{display:'flex',flexDirection:'row'}}>
+        <div id="list" key={props.id} >
+            <div className="title_and_button" >
                 <h3 className="listTitle">{props.listTitle}</h3>
-                <button className="moreButton" style={{float:'right'}}>More</button>
+                <button className="moreButton" >More</button>
             </div>
 
-            <div className="listBody" style={{display:'flex',flexDirection:'row',width:'100vw'}}>
+            <div className="listBody" >
             {
                 props.listobject.map((p)=>movieBody(p))
             } 

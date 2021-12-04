@@ -1,0 +1,27 @@
+
+.movie{
+    display:'flex';
+    flex-direction:'column';
+    padding:'10px';
+    width:'15vw';  
+    align-items:"center"
+}
+.list{
+    display:'flex';
+    flex-direction:'column'}
+.title_and_button{
+    display:'flex';
+    flex-direction:'row'
+}
+.moreButten{
+    float:'right'
+}
+.listBody{
+    display:'flex';
+    flex-direction:'row';
+    width:'100vw'
+}
+.movieImg{
+    width:"15vw";
+    height:"auto"
+}

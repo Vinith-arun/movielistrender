@@ -1,5 +1,6 @@
 
 import './App.css';
+import './Home.css';
 // import Mlf from './ml';
 import Home from './home'
 // import Vm from './vm';
