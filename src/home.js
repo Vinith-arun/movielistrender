@@ -1,29 +1,30 @@
 import React,{useState,useEffect} from 'react'
 import {  fetchMovieList } from './controllers/apis';
-import './'
-// const all =require('./store/store');
-function movieBody(props){
+import './Home.css';
+// import Movies from './Movies';
+
+
+export function movieBodyRenderFunction(props){
     return(
         <div key={props.id} className="movie">
-            <img className="movieImg" alt="img" src={props.img} ></img>
-            <div className="movieBody" style={{display:'flex',flexDirection:'row'}}>
-                <p className="movieName">{props.moviename+" "} </p>
-                <p className="movieYear">{props.year}</p>
+            <img className="movieImg" alt="img" src={props.Poster} ></img>
+            <div className="movieBody" >
+                <div className="movieName">{props.MovieName+" "} </div>
+                <div className="movieYear">{props.Year}</div>
             </div>
         </div>
     )
 }
-function listContainer(props){
+export  function listRenderFunction(props){
     return(
-        <div id="list" key={props.id} >
+        <div className="list" key={props.id} id={props.id} >
             <div className="title_and_button" >
                 <h3 className="listTitle">{props.listTitle}</h3>
-                <button className="moreButton" >More</button>
+                <a href={`/movies/${props.listRoute}` }className='title_and_button'><button >More</button></a>
             </div>
-
             <div className="listBody" >
             {
-                props.listobject.map((p)=>movieBody(p))
+                props.listobject.map((p)=>movieBodyRenderFunction(p))
             } 
             </div>
         </div>
@@ -39,41 +40,41 @@ const[thriller_home,setthriller_home]=useState([notFetched])
 const[crime_home,setcrime_home]=useState([notFetched])
 const[comedy_home,setcomedy_home]=useState([notFetched])
 const[romantic_home,setromantic_home]=useState([notFetched])
-const listjson=[
-{"listTitle":"Latest and trending","listobject":latest_and_trending_home,"id":1},
-{"listTitle":"Action","listobject":action_home,"id":2},
-{"listTitle":"Kids","listobject":kids_home,"id":3},
-{"listTitle":"Thriller","listobject":thriller_home,"id":4},
-{"listTitle":"Crime","listobject":crime_home,"id":5},
-{"listTitle":"Comedy","listobject":comedy_home,"id":6},
-{"listTitle":"Romantic","listobject":romantic_home,"id":7}]
+const listOfMovies=[
+{"listTitle":"Latest and trending","listRoute":"latest","listobject":latest_and_trending_home,"id":1},
+{"listTitle":"Action","listRoute":"action","listobject":action_home,"id":2},
+{"listTitle":"Kids","listRoute":"kids","listobject":kids_home,"id":3},
+{"listTitle":"Thriller","listRoute":"thriller","listobject":thriller_home,"id":4},
+{"listTitle":"Crime","listRoute":"crime","listobject":crime_home,"id":5},
+{"listTitle":"Comedy","listRoute":"comedy","listobject":comedy_home,"id":6},
+{"listTitle":"Romantic","listRoute":"romantic","listobject":romantic_home,"id":7}]
 useEffect(()=>{
-    fetchMovieList('latest')
+    fetchMovieList('latest&limit=5')
     .then(resp =>setlatest_and_trending_home(resp.data))
     .catch(e=>console.log(e));
-    fetchMovieList('action')
+    fetchMovieList('action&limit=5')
     .then(resp => {setaction_home(resp.data)})
     .catch(e=>{console.log(e)});
-    fetchMovieList('crime')
-    .then(resp => {setkids_home(resp.data)})
-    .catch(e=>{console.log(e)});
-    fetchMovieList('crime')
+    fetchMovieList('crime&limit=5')
     .then(resp => {setcrime_home(resp.data)})
     .catch(e=>{console.log(e)});
-    fetchMovieList('thriller')
+    fetchMovieList('kids&limit=5')
+    .then(resp => {setkids_home(resp.data)})
+    .catch(e=>{console.log(e)});
+    fetchMovieList('thriller&limit=5')
     .then(resp => {setthriller_home(resp.data)})
     .catch(e=>{console.log(e)});
-    fetchMovieList('comedy')
+    fetchMovieList('comedy&limit=5')
     .then(resp => {setcomedy_home(resp.data)})
     .catch(e=>{console.log(e)});
-    fetchMovieList('romantic')
+    fetchMovieList('romantic&limit=5')
     .then(resp => {setromantic_home(resp.data)})
     .catch(e=>{console.log(e)});   
 },[])
     return (
         <div id="homeContainer">
             {   
-                    listjson.map((props)=>listContainer(props))  
+                listOfMovies.map((props)=>listRenderFunction(props))  
             }
         </div>
     )
