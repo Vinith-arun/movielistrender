@@ -5,8 +5,9 @@ import './Home.css';
 
 
 export function movieBodyRenderFunction(props){
+
     return(
-        <div key={props.id} className="movie">
+        <div key={props.MovieId} className="movie">
             <img className="movieImg" alt="img" src={props.Poster} ></img>
             <div className="movieBody" >
                 <div className="movieName">{props.MovieName+" "} </div>
@@ -20,7 +21,8 @@ export  function listRenderFunction(props){
         <div className="list" key={props.id} id={props.id} >
             <div className="title_and_button" >
                 <h3 className="listTitle">{props.listTitle}</h3>
-                <a href={`/movies/${props.listRoute}` }className='title_and_button'><button >More</button></a>
+                <a href={`/movies/${props.listRoute}`}className='title_and_button'>
+                <button name="Button" >More</button></a>
             </div>
             <div className="listBody" >
             {
@@ -41,13 +43,13 @@ const[crime_home,setcrime_home]=useState([notFetched])
 const[comedy_home,setcomedy_home]=useState([notFetched])
 const[romantic_home,setromantic_home]=useState([notFetched])
 const listOfMovies=[
-{"listTitle":"Latest and trending","listRoute":"latest","listobject":latest_and_trending_home,"id":1},
-{"listTitle":"Action","listRoute":"action","listobject":action_home,"id":2},
-{"listTitle":"Kids","listRoute":"kids","listobject":kids_home,"id":3},
-{"listTitle":"Thriller","listRoute":"thriller","listobject":thriller_home,"id":4},
-{"listTitle":"Crime","listRoute":"crime","listobject":crime_home,"id":5},
-{"listTitle":"Comedy","listRoute":"comedy","listobject":comedy_home,"id":6},
-{"listTitle":"Romantic","listRoute":"romantic","listobject":romantic_home,"id":7}]
+{"listTitle":"Latest and trending","listRoute":"latest","listobject":latest_and_trending_home,"id":"list1"},
+{"listTitle":"Action","listRoute":"action","listobject":action_home,"id":"list2"},
+{"listTitle":"Kids","listRoute":"kids","listobject":kids_home,"id":"list3"},
+{"listTitle":"Thriller","listRoute":"thriller","listobject":thriller_home,"id":"list4"},
+{"listTitle":"Crime","listRoute":"crime","listobject":crime_home,"id":"list5"},
+{"listTitle":"Comedy","listRoute":"comedy","listobject":comedy_home,"id":"list6"},
+{"listTitle":"Romantic","listRoute":"romantic","listobject":romantic_home,"id":"list7"}]
 useEffect(()=>{
     fetchMovieList('latest&limit=5')
     .then(resp =>setlatest_and_trending_home(resp.data))
