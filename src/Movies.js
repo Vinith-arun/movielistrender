@@ -3,6 +3,12 @@ import { movieBodyRenderFunction } from './home'
 import { fetchMovieList } from './controllers/apis'
 import './Home.css'
 import {useParams} from 'react-router-dom'
+export function Search(){
+    let {name}=useParams();
+    console.log(name);
+ 
+    return(<h1>{name}</h1>)
+}
 export default function Movies() {
 let path= useParams();
 console.log(path)

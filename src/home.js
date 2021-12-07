@@ -75,7 +75,11 @@ useEffect(()=>{
 },[])
     return (
         <div id="homeContainer">
+            <input placeholder="search" id='search'></input>
+            <button onClick={()=>{console.log(document.getElementById('search').value)}}>s</button>
+            {/* <a href={`/movies/search/`}></a> */}
             {   
+
                 listOfMovies.map((props)=>listRenderFunction(props))  
             }
         </div>
