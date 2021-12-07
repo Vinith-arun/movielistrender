@@ -2,22 +2,23 @@ import React,{useState,useEffect} from 'react'
 import { movieBodyRenderFunction } from './home'
 import { fetchMovieList } from './controllers/apis'
 import './Home.css'
-export default function Movies(props) {
-const fetching={ moviename: "Fetching", year: "Fetching",id:'1'}
-const notFetched=[fetching,fetching,fetching,fetching,fetching]
-const [list,setList]=useState([notFetched])
+import {useParams} from 'react-router-dom'
+export default function Movies() {
+let path= useParams();
+console.log(path)
+let genre=path.genre;
+const[list,setList]=useState([])
 useEffect(()=>{
-    fetchMovieList(props.listRoute)
-    .then(resp =>{setList(resp.data);console.log(resp.data)})
+    fetchMovieList(genre)
+    .then(resp =>setList(resp.data))
     .catch(e=>console.log(e));
-},[props.listRoute])
-var fullList={"listTitle":props.listTitle,"listObject":list}
+},[genre])
     return (
         <div>
-            <h1>{fullList.listTitle}</h1>
+            <h1 className="listTitle">{`${genre[0].toUpperCase()+genre.slice(1,genre.length)} Movies`}</h1>
             <div className="listBody">
-            {fullList.listObject.map((obj)=>{
-                return(movieBodyRenderFunction (obj))
+            {
+                list.map((obj)=>{return(movieBodyRenderFunction (obj))
             })}
             </div>
         </div>

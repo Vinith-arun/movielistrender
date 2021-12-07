@@ -53,3 +53,9 @@ button:hover{
     /* background-color: #ff5; */
     border-color: #000;
 }
+.listTitle{
+    background-color: #000;
+    color: #fff;
+    height: 10vh;
+    align-items: center;
+}
