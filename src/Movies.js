@@ -21,7 +21,7 @@ useEffect(()=>{
 },[genre])
     return (
         <div>
-            <h1 className="listTitle">{`${genre[0].toUpperCase()+genre.slice(1,genre.length)} Movies`}</h1>
+            <h1 className="listtitle">{`${genre[0].toUpperCase()+genre.slice(1,genre.length)} Movies`}</h1>
             <div className="listBody">
             {
                 list.map((obj)=>{return(movieBodyRenderFunction (obj))

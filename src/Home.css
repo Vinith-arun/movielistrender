@@ -30,6 +30,7 @@
 .movieBody{
     width:15vw;
     background-color: #aaa;
+    font-weight: lighter;
 }
 .movieName{
 color: #300;
@@ -53,7 +54,7 @@ button:hover{
     /* background-color: #ff5; */
     border-color: #000;
 }
-.listTitle{
+.listtitle{
     background-color: #000;
     color: #fff;
     height: 10vh;
