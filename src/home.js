@@ -1,30 +1,31 @@
 import React,{useState,useEffect} from 'react'
+import { Link} from 'react-router-dom';
 import {  fetchMovieList } from './controllers/apis';
 import './Home.css';
 // import Movies from './Movies';
 
 
 export function movieBodyRenderFunction(props){
-
-    return(
+    return(<Link to={`/movies/movie/${props.MovieId}`}>
         <div key={props.MovieId} className="movie">
             <img className="movieImg" alt="img" src={props.Poster} ></img>
             <div className="movieBody" >
                 <div className="movieName">{props.MovieName+" "} </div>
                 <div className="movieYear">{props.Year}</div>
             </div>
-        </div>
+        </div></Link>
+
     )
 }
 export  function listRenderFunction(props){
     return(
         <div className="list" key={props.id} id={props.id} >
-            <div className="title_and_button" >
+            <div className="title_and_button" key={`title_and_button${props.id}`}>
                 <h3 className="listTitle">{props.listTitle}</h3>
-                <a href={`/movies/${props.listRoute}`}className='title_and_button'>
-                <button name="Button" >More</button></a>
+                <a href={`/movies/${props.listRoute}`}className='a'>
+                <button className="button" >More</button></a>
             </div>
-            <div className="listBody" >
+            <div className="listBody" key="listBody">
             {
                 props.listobject.map((p)=>movieBodyRenderFunction(p))
             } 
@@ -55,7 +56,7 @@ useEffect(()=>{
     .then(resp =>setlatest_and_trending_home(resp.data))
     .catch(e=>console.log(e));
     fetchMovieList('action&limit=5')
-    .then(resp => {setaction_home(resp.data)})
+    .then(resp => {setaction_home(resp.data);console.log(resp.data)})
     .catch(e=>{console.log(e)});
     fetchMovieList('crime&limit=5')
     .then(resp => {setcrime_home(resp.data)})
@@ -75,11 +76,10 @@ useEffect(()=>{
 },[])
     return (
         <div id="homeContainer">
-            <input placeholder="search" id='search'></input>
-            <button onClick={()=>{console.log(document.getElementById('search').value)}}>s</button>
-            {/* <a href={`/movies/search/`}></a> */}
+            {/* <input placeholder="search" id='search' key='searchField'></input>
+            <a href='/movies/search/' key='searchLink'>
+            <button key='searchButton'>s</button></a> */}
             {   
-
                 listOfMovies.map((props)=>listRenderFunction(props))  
             }
         </div>

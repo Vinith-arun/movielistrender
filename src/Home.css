@@ -6,15 +6,21 @@
     width:15vw;  
     align-items:center
 }
+#homeContainer{
+    /* background-image: linear-gradient(#fff,#bbb); */
+}
 .list{
+    margin: 10px 0px;
     display:flex;
-    flex-direction:column}
+    flex-direction:column
+}
 .title_and_button{
     display:flex;
-    flex-direction:row
-}
-.moreButten{
-    float:right
+    flex-direction:row;
+    background-color: #ccc;
+    color: #088;
+    justify-content: center;
+    align-items: center;
 }
 .listBody{
     display:flex;
@@ -38,25 +44,79 @@ color: #300;
 .movieYear{
 color: #07f;    
 }
-a{
+.a{
     right: 0;
     position: absolute;
 }
-button{
-border-color: #0b5;
+.button{
+border: none;
+background-color: #088;
 color: #000;
-background-color: #0b5;
 padding: 4px 10px;
-border-style: solid;
 border-radius: 0.5vw;
+margin-right: 10px;
 }
-button:hover{
-    /* background-color: #ff5; */
-    border-color: #000;
+.button:hover{
+color: #fff;
+font-weight: bold;
+    /* background-color: #5aa; */
 }
 .listtitle{
     background-color: #000;
     color: #fff;
     height: 10vh;
     align-items: center;
+}
+.cast-detail,.add-info {
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: darkcyan;
+}
+.block{
+       width: 50%;
+}
+.plot{
+       padding: 10px;
+       margin: 10px;
+}
+.movie-basic{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: darkgrey;
+    overflow: scroll;
+}
+.poster{
+    width: 40%;
+    float: left;
+}
+.movie-info{
+    width: 60%;
+    float: right;
+    display: flex;
+    flex-direction: column;
+}
+.movie-amt{
+margin: 50px 0px;
+} 
+.year, .duration, .genre{
+    margin: 10px;
+}
+.buyRent{
+background-color: #f00; /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+margin: 10px; 
+text-align: center;
+/* display: inline-block; */
+font-size: 16px;
+}
+.small-header{
+    background-color: #aaa;
+    margin: auto 10px auto auto;
+    padding: 10px;
 }

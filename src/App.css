@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-
 }
 a{
   text-decoration: none;
@@ -10,4 +9,7 @@ a:hover{
 }
 p{
   color: black;
+}
+*{
+transition: all 0.5s;
 }
