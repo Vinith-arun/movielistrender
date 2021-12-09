@@ -3,11 +3,18 @@ import { movieBodyRenderFunction } from './home'
 import { fetchMovieList,fetchMovieDetail } from './controllers/apis'
 import './Home.css'
 import {useParams} from 'react-router-dom'
-// export function Search(e){
-//     // let {name}=useParams();
-//     console.log(e.target);
-//     return(<h1>Search</h1>)
-// }
+ function Search(movieID){
+    // let {name}=useParams();
+    // console.log(e.target);
+    const[test,setTest]=useState([])
+    useEffect(()=>{
+      fetchMovieDetail(movieID)
+    .then(res=>{setTest(res.data);})
+    .catch(e=>{console.log(e)})
+    },[movieID])
+    return(test)
+}
+export let val1=[]
 function cast(props){
     if(props.movieCast)
     return(
@@ -35,6 +42,7 @@ function cast(props){
 export function Movie(){
     let path=useParams();
     let movieID=path.movie;
+    val1=Search(movieID);
     const[movie,setMovie]=useState([{}]);
     useEffect(()=>{
     fetchMovieDetail(movieID)

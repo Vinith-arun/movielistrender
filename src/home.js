@@ -2,6 +2,14 @@ import React,{useState,useEffect} from 'react'
 import { Link} from 'react-router-dom';
 import {  fetchMovieList } from './controllers/apis';
 import './Home.css';
+import { latest_and_trending_home,
+    action_home,
+    crime_home,
+    thriller_home,
+    comedy_home,
+    kids_home,
+romantic_home
+ } from './store/store';
 // import Movies from './Movies';
 
 
@@ -34,15 +42,16 @@ export  function listRenderFunction(props){
 )
 }
 export default  function Home() {   
+// console.log("latest_and_trending_home",action_home);
 const fetching={ moviename: "Fetching", year: "Fetching",id:'1'}
 const notFetched=[fetching,fetching,fetching,fetching,fetching]
-const[latest_and_trending_home,setlatest_and_trending_home]=useState([notFetched])
-const[action_home,setaction_home]=useState([notFetched])
-const[kids_home,setkids_home]=useState([notFetched])
-const[thriller_home,setthriller_home]=useState([notFetched])
-const[crime_home,setcrime_home]=useState([notFetched])
-const[comedy_home,setcomedy_home]=useState([notFetched])
-const[romantic_home,setromantic_home]=useState([notFetched])
+const[latest_and_trending,setlatest_and_trending_home]=useState([notFetched])
+// const[action_home,setaction_home]=useState([notFetched])
+// const[kids_home,setkids_home]=useState([notFetched])
+// const[thriller_home,setthriller_home]=useState([notFetched])
+// const[crime_home,setcrime_home]=useState([notFetched])
+// const[comedy_home,setcomedy_home]=useState([notFetched])
+// const[romantic_home,setromantic_home]=useState([notFetched])
 const listOfMovies=[
 {"listTitle":"Latest and trending","listRoute":"latest","listobject":latest_and_trending_home,"id":"list1"},
 {"listTitle":"Action","listRoute":"action","listobject":action_home,"id":"list2"},
@@ -55,24 +64,24 @@ useEffect(()=>{
     fetchMovieList('latest&limit=5')
     .then(resp =>setlatest_and_trending_home(resp.data))
     .catch(e=>console.log(e));
-    fetchMovieList('action&limit=5')
-    .then(resp => {setaction_home(resp.data);console.log(resp.data)})
-    .catch(e=>{console.log(e)});
-    fetchMovieList('crime&limit=5')
-    .then(resp => {setcrime_home(resp.data)})
-    .catch(e=>{console.log(e)});
-    fetchMovieList('kids&limit=5')
-    .then(resp => {setkids_home(resp.data)})
-    .catch(e=>{console.log(e)});
-    fetchMovieList('thriller&limit=5')
-    .then(resp => {setthriller_home(resp.data)})
-    .catch(e=>{console.log(e)});
-    fetchMovieList('comedy&limit=5')
-    .then(resp => {setcomedy_home(resp.data)})
-    .catch(e=>{console.log(e)});
-    fetchMovieList('romantic&limit=5')
-    .then(resp => {setromantic_home(resp.data)})
-    .catch(e=>{console.log(e)});   
+//     fetchMovieList('action&limit=5')
+//     .then(resp => {setaction_home(resp.data);})
+//     .catch(e=>{console.log(e)});
+//     fetchMovieList('crime&limit=5')
+//     .then(resp => {setcrime_home(resp.data)})
+//     .catch(e=>{console.log(e)});
+//     fetchMovieList('kids&limit=5')
+//     .then(resp => {setkids_home(resp.data)})
+//     .catch(e=>{console.log(e)});
+//     fetchMovieList('thriller&limit=5')
+//     .then(resp => {setthriller_home(resp.data)})
+//     .catch(e=>{console.log(e)});
+//     fetchMovieList('comedy&limit=5')
+//     .then(resp => {setcomedy_home(resp.data)})
+//     .catch(e=>{console.log(e)});
+//     fetchMovieList('romantic&limit=5')
+//     .then(resp => {setromantic_home(resp.data)})
+//     .catch(e=>{console.log(e)});   
 },[])
     return (
         <div id="homeContainer">
