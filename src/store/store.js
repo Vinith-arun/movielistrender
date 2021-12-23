@@ -8,6 +8,7 @@ let thriller_home=[{}]
 let crime_home=[{}]
 let comedy_home=[{}]
 let romantic_home=[{}]
+console.log(latest_and_trending_home);
 fetchMovieList('latest&limit=5')
 .then((res)=>{latest_and_trending_home=res.data;})
 .catch(e=>{console.log(e)})
